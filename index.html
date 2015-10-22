@@ -42,7 +42,7 @@
     <div class="progress" ng-hide="loaded">
       <div class="indeterminate"></div>
     </div>
-    <div class="card cyan lighten-5" ng-repeat="repo in repos | orderBy:'-stargazers_count'">
+    <div class="card light-blue lighten-4 hoverable" ng-repeat="repo in repos | orderBy:'-stargazers_count'">
       <div class="card-content row">
         <div class="col s8">
           <h1>{{ repo.name }}</h1>
