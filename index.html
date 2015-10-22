@@ -1,9 +1,79 @@
----
-layout: withheader
----
+<!DOCTYPE html>
+<html lang="en">
 
-{% include services.html %}
+<head>
 
-{% include about.html %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-{% include team.html %}
+  <title>Layer8x - Layer 8's Code Lab</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="codeLab">
+  <nav class="blue">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Layer8x - Code Lab</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="http://layer8.network"><span class="fa fa-fw fa-chevron-left"></span> Return to Layer 8</a></li>
+        <li><a href="http://github.com/layer8x"><span class="fa fa-fw fa-github-alt"></span> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" ng-controller="RepoController">
+    <div class="progress" ng-hide="loaded">
+      <div class="indeterminate"></div>
+    </div>
+    <div class="card cyan lighten-5" ng-repeat="repo in repos | orderBy:'-stargazers_count'">
+      <div class="card-content row">
+        <div class="col s8">
+          <h1>{{ repo.name }}</h1>
+          <p>{{ repo.description }}</p>
+        </div>
+        <div class="col s4">
+          <ul class="collection">
+           <li class="collection-item"><i class="fa fa-fw fa-star-o"></i>Stars<span class="badge">{{ repo.stargazers_count }}</span></li>
+           <li class="collection-item"><i class="fa fa-fw fa-code-fork"></i>Forks<span class="badge">{{ repo.forks_count }}</span></li>
+           <li class="collection-item"><i class="fa fa-fw fa-eye"></i>Watchers<span class="badge">{{ repo.watchers_count }}</span></li>
+         </ul>
+        </div>
+      </div>
+      <div class="card-action row">
+        <div class="col s2">
+          <a href="{{ repo.html_url }}" class="btn-large btn-floating waves-effect waves-light teal accent-3"><i class="fa fa-fw fa-github"></i></a>
+        </div>
+        <div class="col s10 right-align">
+          <a href="{{ repo.pages_url }}" ng-show="repo.has_pages" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-file-o"></i> Website</a>
+          <a href="{{ repo.html_url + '/wiki' }}" ng-show="repo.has_wiki" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-wikipedia-w"></i> Wiki</a>
+          <a href="{{ repo.html_url + '/issues' }}" ng-show="repo.has_issues" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-exclamation-circle"></i> Issues</a>
+          <a href="{{ repo.html_url + '/pulls' }}" ng-show="repo.has_issues" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-code"></i> PR's</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.js" charset="utf-8"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+</body>
+
+</html>
