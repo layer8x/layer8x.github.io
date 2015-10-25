@@ -32,9 +32,9 @@
   <nav class="blue">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Layer8x - Code Lab</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="http://layer8.network"><span class="fa fa-fw fa-chevron-left"></span> Return to Layer 8</a></li>
-        <li><a href="http://github.com/layer8x"><span class="fa fa-fw fa-github-alt"></span> GitHub</a></li>
+      <ul id="nav-mobile" class="left">
+        <li><a href="http://layer8.network"><span class="fa fa-fw fa-chevron-left"></span> <span class="hide-on-med-and-down">Return to Layer 8</span></a></li>
+        <li><a href="http://github.com/layer8x"><span class="fa fa-fw fa-github-alt"></span> <span class="hide-on-med-and-down">GitHub</span></a></li>
       </ul>
     </div>
   </nav>
@@ -62,10 +62,10 @@
           <a href="{{ repo.html_url }}" class="btn-large btn-floating waves-effect waves-light teal accent-3"><i class="fa fa-fw fa-github"></i></a>
         </div>
         <div class="col s10 right-align">
-          <a href="{{ repo.pages_url }}" ng-show="repo.has_pages" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-file-o"></i> Website</a>
-          <a href="{{ repo.html_url + '/wiki' }}" ng-show="repo.has_wiki" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-wikipedia-w"></i> Wiki</a>
-          <a href="{{ repo.html_url + '/issues' }}" ng-show="repo.has_issues" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-exclamation-circle"></i> Issues</a>
-          <a href="{{ repo.html_url + '/pulls' }}" ng-show="repo.has_issues" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-code"></i> PR's</a>
+          <a href="{{ repo.pages_url }}" ng-show="repo.has_pages" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-file-o"></i> <span class="hide-on-med-and-down">Website</span></a>
+          <a href="{{ repo.html_url + '/wiki' }}" ng-show="repo.has_wiki" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-wikipedia-w"></i> <span class="hide-on-med-and-down">Wiki</span></a>
+          <a href="{{ repo.html_url + '/issues' }}" ng-show="repo.has_issues" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-exclamation-circle"></i> <span class="hide-on-med-and-down">Issues</span></a>
+          <a href="{{ repo.html_url + '/pulls' }}" ng-show="repo.has_issues" class="btn-large waves-effect waves-light teal"><i class="fa fa-fw fa-code"></i> <span class="hide-on-med-and-down">PR's</span></a>
         </div>
       </div>
     </div>
